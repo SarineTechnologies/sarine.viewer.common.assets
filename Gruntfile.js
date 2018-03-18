@@ -11,6 +11,19 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     cwd: 'src/js',
+                    src: '*',
+                    dest: config.dist.root,
+                    expand: true
+
+                },
+                {
+                    cwd: 'src/images',
+                    src: '**/*',
+                    dest: config.dist.root,
+                    expand: true
+
+                },{
+                    cwd: 'src/js/vendor',
                     src: '**/*',
                     dest: config.dist.root,
                     expand: true
