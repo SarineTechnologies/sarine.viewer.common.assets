@@ -10,24 +10,10 @@ module.exports = function(grunt) {
         copy: {
             dist: {
                 files: [{
-                    cwd: 'src/js',
-                    src: '*',
-                    dest: config.dist.root,
-                    expand: true
-
-                },
-                {
-                    cwd: 'src/images',
+                    cwd: 'app',
                     src: '**/*',
                     dest: config.dist.root,
                     expand: true
-
-                },{
-                    cwd: 'src/js/vendor',
-                    src: '**/*',
-                    dest: config.dist.root,
-                    expand: true
-
                 }]
             }
         },
@@ -70,7 +56,7 @@ module.exports = function(grunt) {
             grunt.log.writeln("dist is github folder");
 
             return {
-                root: 'app/dist/js'
+                root: 'app/dist/'
             }
         }
         else
