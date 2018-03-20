@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     cwd: 'app',
-                    src: '**/*',
+                    src: ['**/*','!fonts/**','!img/**'],
                     dest: config.dist.root,
                     expand: true
                 }]
