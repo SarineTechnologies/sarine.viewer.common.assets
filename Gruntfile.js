@@ -28,14 +28,36 @@ module.exports = function(grunt) {
                         spawn: false,
                     }
                 }
-            }
+            },
+        uglify: {
+                minify_files: {
+                    options: {
+                        sourceMap: true,
+                        sourceMapIncludeSources: true
+                    },
+                    files: [{
+                        expand: true,
+                        src: ['**/*.js', '!**/*.min.js'],
+                        dest: 'app',
+                        cwd: 'app',
+                        rename: function (dst, src) {
+                          // To keep the source js files and make new files as `*.min.js`:
+                          // return dst + '/' + src.replace('.js', '.min.js');
+                          // Or to override to src:
+                          return dst + '/' + src.replace('.js', '.min.js');
+                        }
+                      }]
+                }
+         },
+            
     })
     grunt.registerTask('build', [
+        'uglify:minify_files',
         'copy:dist' 
     ])
     grunt.registerTask('dev', ['build', 'watch']);
 
-    grunt.registerTask('copyVersion' , 'copy version from package.json to sarine.viewer.unifiedassets.config' , function (){
+    grunt.registerTask('copyVersion' , 'copy version from package.json to sarine.viewer.common.assets.config' , function (){
         var packageFile = grunt.file.readJSON(target + 'package.json');
         var configFileName = target + packageFile.name + '.config';
         var copyFile = null;
