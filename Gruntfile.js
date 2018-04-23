@@ -41,9 +41,6 @@ module.exports = function(grunt) {
                         dest: 'app',
                         cwd: 'app',
                         rename: function (dst, src) {
-                          // To keep the source js files and make new files as `*.min.js`:
-                          // return dst + '/' + src.replace('.js', '.min.js');
-                          // Or to override to src:
                           return dst + '/' + src.replace('.js', '.min.js');
                         }
                       }]
@@ -53,13 +50,14 @@ module.exports = function(grunt) {
     })
     grunt.registerTask('build', [
         'uglify:minify_files',
-        'copy:dist' 
+        'copy:dist',
+        'copyVersion'
     ])
     grunt.registerTask('dev', ['build', 'watch']);
 
     grunt.registerTask('copyVersion' , 'copy version from package.json to sarine.viewer.common.assets.config' , function (){
         var packageFile = grunt.file.readJSON(target + 'package.json');
-        var configFileName = target + packageFile.name + '.config';
+        var configFileName = packageFile.name + '.config';
         var copyFile = null;
         if (grunt.file.exists(configFileName))
             copyFile = grunt.file.readJSON(configFileName);
@@ -68,8 +66,11 @@ module.exports = function(grunt) {
             copyFile = {};
 
         copyFile.version = packageFile.version;
-        grunt.file.write(configFileName , JSON.stringify(copyFile));
+        grunt.file.write(config.dist.root+configFileName , JSON.stringify(copyFile));
+        grunt.log.writeln(config.dist+configFileName);
     });
+
+
 
     function decideDist()
     {
