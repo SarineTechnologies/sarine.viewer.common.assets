@@ -31,5 +31,8 @@
   },
   "scripts": {
     "build": "npm install"
+  },
+  "engines": {
+    "node": "4.5.0"
   }
 }
