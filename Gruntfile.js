@@ -8,10 +8,18 @@ module.exports = function(grunt) {
     grunt.initConfig({
         config: grunt.file.readJSON(target + "package.json"),
         copy: {
-            dist: {
+            tmp: {
                 files: [{
                     cwd: 'app',
                     src: ['**/*','!fonts/**','!img/**'],
+                    dest: target + 'tmp',
+                    expand: true
+                }]
+            },
+            dist: {
+                files: [{
+                    cwd: 'tmp',
+                    src: ['**/*'],
                     dest: config.dist.root,
                     expand: true
                 }]
@@ -38,20 +46,25 @@ module.exports = function(grunt) {
                     files: [{
                         expand: true,
                         src: ['**/*.js', '!**/*.min.js'],
-                        dest: 'app',
-                        cwd: 'app',
+                        dest: 'tmp',
+                        cwd: 'tmp',
                         rename: function (dst, src) {
                           return dst + '/' + src.replace('.js', '.min.js');
                         }
                       }]
                 }
          },
+         clean: {
+            build: [target + "tmp/"],
+        },
             
     })
     grunt.registerTask('build', [
+        'copy:tmp',
         'uglify:minify_files',
         'copy:dist',
-        'copyVersion'
+        'copyVersion',
+        'clean:build'
     ])
     grunt.registerTask('dev', ['build', 'watch']);
 
