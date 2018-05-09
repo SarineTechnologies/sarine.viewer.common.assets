@@ -4,6 +4,7 @@
     window.Device = {
         isMobileOrTablet: isMobileOrTablet,
         isOnlyMobile: isOnlyMobile,
+        isHTTP2: isHTTP2
     };
 
     function isMobileOrTablet() {
@@ -23,6 +24,23 @@
         })(navigator.userAgent || navigator.vendor || window.opera);
 
         return res && width < 480;
+    }
+
+    function isHTTP2() {
+        var ie = false,
+            win7 = false;
+        try {
+            ie = navigator.userAgent.match( /(MSIE |Trident.*rv[ :])([0-9]+)/ )[ 2 ];
+            win7 = navigator.userAgent.match( /Windows NT 6.1/ )[0];
+        }
+        catch (e) {} 
+
+        // patch: temporary disable http2 for ChinaCache
+        var isChina = (cdn_subdomains.filter(function(v) {
+            return v.indexOf('china') > -1
+        }).length > 0);
+
+        return ! (win7 && ie) && ! isChina
     }
 
 })(window, window.document);
