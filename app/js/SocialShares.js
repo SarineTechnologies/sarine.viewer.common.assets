@@ -43,7 +43,8 @@
         
         setDefaultFields();
 
-        // Add og:... meta tags to head
+        //no need to insert meta tags here - they are pushed on the server
+      /*  // Add og:... meta tags to head
         [
             {propName: 'image', value: config.shareImg},
             {propName: 'type',  value: 'website'},
@@ -54,7 +55,8 @@
                 property: 'og:' + anItem.propName,
                 content: anItem.value
             }));
-        });
+        });*/
+
 
         $('#idValue').text(config.sarineId);
         
