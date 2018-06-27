@@ -35,12 +35,7 @@
         }
         catch (e) {} 
 
-        // patch: temporary disable http2 for ChinaCache
-        var isChina = (cdn_subdomains.filter(function(v) {
-            return v.indexOf('china') > -1
-        }).length > 0);
-
-        return ! (win7 && ie) && ! isChina
+        return ! (win7 && ie)
     }
 
 })(window, window.document);
