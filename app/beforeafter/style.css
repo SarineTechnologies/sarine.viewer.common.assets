@@ -41,7 +41,7 @@
   bottom:-10px;
   width:2px;
   margin-left:-1px;
-  background: rgba(255,255,255,.2);
+  background: rgb(0,0,0);
   cursor: ew-resize;
   z-index: 2;
 }
@@ -51,7 +51,7 @@
   width: 32px;
   height: 32px;
   display: block;
-  margin: -16px 0 0 -16px;
+  margin: -22px 0 0 -16px;
   color: #333;
   font-size: 12px;
   text-align: center;
@@ -114,3 +114,72 @@
   font-size: 18px;
 }
 
+.sdk .clarityView .cq-beforeafter {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.sdk .clarityView .cq-beforeafter img {
+  height: 100%;
+}
+
+.sdk .cq-beforeafter .cq-beforeafter-handle i{
+  line-height: 44px;
+}
+
+@media screen and (max-width: 350px) {
+  .sdk .clarityView .cq-beforeafter {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .sdk .clarityView .cq-beforeafter {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .sdk .cq-beforeafter .cq-beforeafter-handle i{
+    height: 28px;
+    line-height: 41px;
+    margin: -18px 0 0 -16px;
+    width: 28px;
+  }
+}
+
+@media screen and (max-width: 205px) {
+  .sdk .clarityView .cq-beforeafter {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 160px) {
+  .sdk .clarityView .cq-beforeafter {
+    width: 120px;
+    height: 120px;
+  }
+
+  .sdk .cq-beforeafter .cq-beforeafter-handle i{
+    height: 24px;
+    line-height: 37px;
+    margin: -18px 0 0 -13px;
+    width: 24px;
+  }
+}
+
+@media screen and (max-width: 140px) {
+  .sdk .clarityView .cq-beforeafter {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 110px) {
+  .sdk .clarityView .cq-beforeafter {
+    width: 80px;
+    height: 80px;
+  }
+}
