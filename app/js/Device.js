@@ -40,23 +40,16 @@
     }
 
     function isSupportsWebp() {
-        return new Promise(function(resolve, reject) {
-          
-            if (!self.createImageBitmap) {
-                reject()
-            }
-            else {
-                var webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
-                fetch(webpData).then(function(response){
-                    return response.blob();
-                }).then(function(blob){
-                return createImageBitmap(blob).then(function(e){ 
-                    resolve()}
-                ,function (e) {
-                    reject()});
-            });
-        }
-          });
+       return new Promise(function(resolve, reject) {
+                 
+         var webP = new Image();
+          webP.onload = function(){
+             if(webP.height == 2) resolve()}
+          webP.onerror = function(){
+              if(webP.height == 2) resolve(); else  reject()}
+              
+          webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
+        }); 
     }
           
 
