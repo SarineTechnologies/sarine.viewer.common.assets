@@ -4,7 +4,8 @@
     window.Device = {
         isMobileOrTablet: isMobileOrTablet,
         isOnlyMobile: isOnlyMobile,
-        isHTTP2: isHTTP2
+        isHTTP2: isHTTP2,
+        isSupportsWebp:isSupportsWebp
     };
 
     function isMobileOrTablet() {
@@ -37,5 +38,27 @@
 
         return ! (win7 && ie)
     }
+
+    function isSupportsWebp() {
+        return new Promise(function(resolve, reject) {
+          
+            if (!self.createImageBitmap) {
+                reject()
+            }
+            else {
+                var webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+                fetch(webpData).then(function(response){
+                    return response.blob();
+                }).then(function(blob){
+                return createImageBitmap(blob).then(function(e){ 
+                    resolve()}
+                ,function (e) {
+                    reject()});
+            });
+        }
+          });
+    }
+          
+
 
 })(window, window.document);
