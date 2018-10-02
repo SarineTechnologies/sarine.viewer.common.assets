@@ -4,7 +4,8 @@
     window.Device = {
         isMobileOrTablet: isMobileOrTablet,
         isOnlyMobile: isOnlyMobile,
-        isHTTP2: isHTTP2
+        isHTTP2: isHTTP2,
+        isSupportsWebp:isSupportsWebp
     };
 
     function isMobileOrTablet() {
@@ -37,5 +38,20 @@
 
         return ! (win7 && ie)
     }
+
+    function isSupportsWebp() {
+       return new Promise(function(resolve, reject) {
+                 
+         var webP = new Image();
+          webP.onload = function(){
+             if(webP.height == 2) resolve()}
+          webP.onerror = function(){
+              if(webP.height == 2) resolve(); else  reject()}
+              
+          webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
+        }); 
+    }
+          
+
 
 })(window, window.document);
