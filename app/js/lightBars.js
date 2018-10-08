@@ -10,8 +10,7 @@
         var barsChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                //the labels are displayed by the HTML
-                labels: ['', '', '', ''],
+                labels: ['', '', '', ''], //empty since the labels are displayed by the HTML
                 datasets: [{
                     data: grades,
                     backgroundColor: color,
@@ -39,6 +38,8 @@
                     yAxes: [{
                         ticks: {
                             beginAtZero:true,
+
+                            max: 5,
                             
                             //define labels
                             callback: function(value, index, values)
