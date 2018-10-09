@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    window.showLightBars = function(elementID, grades, color, borderColor, thickness)
+    window.showLightBars = function(elementID, grades, yAxisLabels, color, borderColor, thickness)
     {
         //using http://www.chartjs.org/
 
@@ -49,15 +49,15 @@
                                     case 0:
                                         return "";
                                     case 1:
-                                        return "Minimum";
+                                        return yAxisLabels[0];
                                     case 2:
-                                        return "Standard";
+                                        return yAxisLabels[1];
                                     case 3:
-                                        return "High";
+                                        return yAxisLabels[2];
                                     case 4:
-                                        return "Very High";
+                                        return yAxisLabels[3];
                                     case 5:
-                                        return "Exceptional";
+                                        return yAxisLabels[4];
                                 }
                             }
                         }
