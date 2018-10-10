@@ -14,7 +14,7 @@
 
         var ctx = document.getElementById(elementID).getContext('2d');
 
-        var gradientStroke = ctx.createLinearGradient(0, 100, 0, 50);
+        var gradientStroke = ctx.createLinearGradient(0, 50, 0, 150);
         gradientStroke.addColorStop(0, startColor);
         gradientStroke.addColorStop(1, endColor);
 
