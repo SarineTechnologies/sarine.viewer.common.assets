@@ -6,11 +6,17 @@
     {
         //using http://www.chartjs.org/
 
+        var labelsToUse = [];
+
+        grades.forEach(function(element) {
+            labelsToUse.push(""); //empty since the labels are displayed by the HTML
+        });
+
         var ctx = document.getElementById(elementID).getContext('2d');
         var barsChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['', '', '', ''], //empty since the labels are displayed by the HTML
+                labels: labelsToUse,
                 datasets: [{
                     data: grades,
                     backgroundColor: color,
