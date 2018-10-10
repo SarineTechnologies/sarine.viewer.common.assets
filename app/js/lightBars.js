@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    window.showLightBars = function(elementID, grades, yAxisLabels, color, borderColor, thickness)
+    window.showLightBars = function(elementID, grades, yAxisLabels, startColor, endColor, borderColor, thickness)
     {
         //using http://www.chartjs.org/
 
@@ -13,13 +13,18 @@
         });
 
         var ctx = document.getElementById(elementID).getContext('2d');
+
+        var gradientStroke = ctx.createLinearGradient(0, 100, 0, 50);
+        gradientStroke.addColorStop(0, startColor);
+        gradientStroke.addColorStop(1, endColor);
+
         var barsChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: labelsToUse,
                 datasets: [{
                     data: grades,
-                    backgroundColor: color,
+                    backgroundColor: gradientStroke,
                     borderColor: borderColor,
                     borderWidth: 1
                 }]
