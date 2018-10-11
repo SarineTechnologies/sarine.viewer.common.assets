@@ -57,6 +57,12 @@
 
                             max: 5,
                             
+                            // below lightBarsFontOptions can be set at 'scripts' tab in Configurator
+                            fontColor: (typeof lightBarsFontOptions !== 'undefined' && lightBarsFontOptions.fontColor) || '#666',
+                            fontFamily: (typeof lightBarsFontOptions !== 'undefined' && lightBarsFontOptions.fontFamily) || "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                            fontSize: (typeof lightBarsFontOptions !== 'undefined' && lightBarsFontOptions.fontSize) || 12,
+                            fontStyle: (typeof lightBarsFontOptions !== 'undefined' && lightBarsFontOptions.fontStyle) || "normal",
+
                             //define labels
                             callback: function(value, index, values)
                             {
