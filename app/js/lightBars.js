@@ -24,9 +24,14 @@
                 labels: labelsToUse,
                 datasets: [{
                     data: grades,
+
                     backgroundColor: gradientStroke,
                     borderColor: borderColor,
-                    borderWidth: 1
+                    borderWidth: 1,
+
+                    hoverBackgroundColor: gradientStroke,
+                    hoverBorderColor: borderColor,
+                    hoverBorderWidth: 1
                 }]
             },
             options: {
