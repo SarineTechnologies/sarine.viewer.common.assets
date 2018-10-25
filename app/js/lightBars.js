@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    window.showLightBars = function(elementID, grades, yAxisLabels, startColor, endColor, borderColor, thickness)
+    window.showLightBars = function(elementID, grades, yAxisLabels, startColor, endColor, borderColor, thickness, borderThickness)
     {
         //using http://www.chartjs.org/
 
@@ -27,11 +27,11 @@
 
                     backgroundColor: gradientStroke,
                     borderColor: borderColor,
-                    borderWidth: 1,
+                    borderWidth: borderThickness,
 
                     hoverBackgroundColor: gradientStroke,
                     hoverBorderColor: borderColor,
-                    hoverBorderWidth: 1
+                    hoverBorderWidth: borderThickness
                 }]
             },
             options: {
@@ -46,6 +46,7 @@
                 },
                 scales: {
                     xAxes: [{
+                        //https://www.chartjs.org/docs/latest/axes/styling.html
                         gridLines : {
                             display: false,
                         },
