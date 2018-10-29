@@ -31,8 +31,5 @@
   },
   "scripts": {
     "build": "grunt build"
-  },
-  "engines": {
-    "node": "4.5.0"
   }
 }
