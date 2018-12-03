@@ -53,7 +53,9 @@
             totalGradeScales.some(function (item) {
                 if (item.name === name) {
                     displayVal = item['default-display'];
-                    result.totalGrade = displayVal.split(' ')[0];
+                    var Splitted = displayVal.split(' ');
+                    Splitted.pop();
+                    result.totalGrade = Splitted.join(' ');
                     var numToCheck = displayVal[displayVal.length - 1];
                     if(!isNaN(numToCheck)) {
                         result.stars = new Array(parseInt(numToCheck) + 1).join('★');
