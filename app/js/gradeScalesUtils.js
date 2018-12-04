@@ -49,7 +49,7 @@
 
             displayVal;
 
-        if (name && totalGradeScales && totalGrade) {
+        if (name && totalGradeScales) {
             totalGradeScales.some(function (item) {
                 if (item.name === name) {
                     displayVal = item['default-display'];
