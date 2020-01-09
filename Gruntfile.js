@@ -92,7 +92,7 @@ module.exports = function(grunt) {
             grunt.log.writeln("dist is github folder");
 
             return {
-                root: 'app/dist/'
+                root: 'dist/'
             }
         }
         else
